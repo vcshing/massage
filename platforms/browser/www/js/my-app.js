@@ -66,33 +66,14 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 
 
 $$(document).on('pause', function (e) {
-	if(!($(".onoffswitch-checkbox").is(':checked')=== true)){
-		navigator.vibrate([]);
-		clearInterval(IntervalVibrate);
-		navigator.vibrate([]);
-		
-		if(Math.floor(Math.random() * 2) + 1 == 1 ){
-			window.admob.requestInterstitialAd();
-		}
-	}else{
-		navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
-		IntervalVibrate = setInterval(function(){ 	
-			navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
-		},11000);	
-	}
+	navigator.vibrate([]);
+	clearInterval(IntervalVibrate);
+	navigator.vibrate([]);
 })
 
 
 $$(document).on('resume', function (e) {
-	if(!($(".onoffswitch-checkbox").is(':checked')=== true)){
-		navigator.vibrate([]);
-		clearInterval(IntervalVibrate);
-		navigator.vibrate([]);
-		
-		if(Math.floor(Math.random() * 2) + 1 == 1 ){
-			window.admob.requestInterstitialAd();
-		}
-	}else{
+	if(($(".onoffswitch-checkbox").is(':checked')=== true)){
 		navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
 		IntervalVibrate = setInterval(function(){ 	
 			navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
