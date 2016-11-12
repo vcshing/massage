@@ -251,6 +251,12 @@
 			}
 		})
 		
+		$(".onoffswitch-label2").bind("click",function(){
+			if(Math.floor(Math.random() * 3) + 1 == 1 ){
+				window.admob.requestInterstitialAd();
+			}
+		})
+		
 		
 		$(".otherApp").bind("click",function(e){
 			e.preventDefault();
