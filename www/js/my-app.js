@@ -29,15 +29,9 @@ $$(document).on('deviceready', function() {
 	autoShowInterstitial: true // auto show interstitials ad when loaded	// Optional 
   });
   
-	// Start showing banners (atomatic when autoShowBanner is set to true) 
-	admob.createBannerView();
+  // Start showing banners (atomatic when autoShowBanner is set to true) 
+  admob.createBannerView();
   
-	document.addEventListener(admob.events.onAdLoaded, this.onAdLoaded, false);
-	document.addEventListener(admob.events.onAdFailedToLoad, this.onAdFailedToLoad, false);
-	document.addEventListener(admob.events.onAdOpened, function (e) { }, false);
-	document.addEventListener(admob.events.onAdClosed, function (e) { }, false);
-	document.addEventListener(admob.events.onAdLeftApplication, function (e) { }, false);
-	document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) { }, false);
   // Request interstitial (will present automatically when autoShowInterstitial is set to true) 
   //admob.requestInterstitialAd();
     
@@ -71,20 +65,31 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 })
 
 
-document.addEventListener("pause", onPause, false);
+$$(document).on('backbutton', function (e) {
 
-function onPause() {
-	var r = confirm("Stop Vibration?");
-	if (r == true) {
-		navigator.vibrate([]);
-		clearInterval(IntervalVibrate);
-		navigator.vibrate([]);
-	} else {
-	
-	}
-}
-
-
-
+	if($.mobile.activePage.is('#index')){
+    
+        navigator.notification.confirm(
+            "Stop Vibration?",
+            function (button) {
+			   if (button==1) {
+				   	navigator.vibrate([]);
+					clearInterval(IntervalVibrate);
+					navigator.vibrate([]);
+                navigator.app.exitApp();
+              }
+              if (button==2) {
+                navigator.app.exitApp();
+              }
+            }
+            ,
+            "EXIT",
+            ["Cancel","OK"]
+        );
+    }
+    else {
+        navigator.app.backHistory()
+    }
+})
 
 
