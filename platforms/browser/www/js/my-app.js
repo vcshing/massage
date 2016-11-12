@@ -66,9 +66,15 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 
 
 $$(document).on('pause', function (e) {
-	navigator.vibrate([]);
-	clearInterval(IntervalVibrate);
-	navigator.vibrate([]);
+
+	var r = confirm("Stop Vibration?");
+	if (r == true) {
+		navigator.vibrate([]);
+		clearInterval(IntervalVibrate);
+		navigator.vibrate([]);
+	} else {
+	
+	}
 })
 
 
