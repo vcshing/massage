@@ -223,7 +223,7 @@
     </div>
 
 	<script>
-		var IntervalVibrate = null;
+		var IntervalVibrate = "";
 	</script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
@@ -237,15 +237,17 @@
 				navigator.vibrate([]);
 				window.clearInterval(IntervalVibrate);
 				navigator.vibrate([]);
-				
+				IntervalVibrate="";
 				if(Math.floor(Math.random() * 2) + 1 == 1 ){
 					window.admob.requestInterstitialAd();
 				}
 			}else{
 				navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
-				IntervalVibrate = window.setInterval(function(){ 	
-					navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
-				},11000);	
+				if(IntervalVibrate==""){
+					IntervalVibrate = window.setInterval(function(){ 	
+						navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
+					},11000);	
+				}
 			}
 		})
 		

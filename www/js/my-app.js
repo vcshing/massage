@@ -72,6 +72,7 @@ $$(document).on('pause', function (e) {
 		navigator.vibrate([]);
 		window.clearInterval(IntervalVibrate);
 		navigator.vibrate([]);
+		IntervalVibrate="";
 	}
 })
 
@@ -79,9 +80,11 @@ $$(document).on('pause', function (e) {
 $$(document).on('resume', function (e) {
 	if(($(".onoffswitch-checkbox").is(':checked')=== true)){
 		navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
-		IntervalVibrate = window.setInterval(function(){ 	
-			navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
-		},11000);	
+		if(IntervalVibrate==""){
+			IntervalVibrate = window.setInterval(function(){ 	
+				navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
+			},11000);	
+		}
 	}
 })
 
