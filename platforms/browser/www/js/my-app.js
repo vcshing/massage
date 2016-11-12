@@ -65,51 +65,39 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 })
 
 
-$$(document).on('backbutton', function (e) {
-alert($.mobile.activePage);
-	if($.mobile.activePage.is('#index')){
-    
-        navigator.notification.confirm(
-            "Stop Vibration?",
-            function (button) {
-			   if (button==1) {
-				   	navigator.vibrate([]);
-					clearInterval(IntervalVibrate);
-					navigator.vibrate([]);
-                navigator.app.exitApp();
-              }
-              if (button==2) {
-                navigator.app.exitApp();
-              }
-            }
-            ,
-            "EXIT",
-            ["Cancel","OK"]
-        );
-    }
-    else {
+$$(document).on('pause', function (e) {
+	if(!($(".onoffswitch-checkbox").is(':checked')=== true)){
+		navigator.vibrate([]);
+		clearInterval(IntervalVibrate);
+		navigator.vibrate([]);
 		
-		navigator.notification.confirm(
-            "Stop Vibration2?",
-            function (button) {
-			   if (button==1) {
-				   	navigator.vibrate([]);
-					clearInterval(IntervalVibrate);
-					navigator.vibrate([]);
-                navigator.app.exitApp();
-              }
-              if (button==2) {
-                navigator.app.exitApp();
-              }
-            }
-            ,
-            "EXIT",
-            ["Cancel","OK"]
-        );
+		if(Math.floor(Math.random() * 2) + 1 == 1 ){
+			window.admob.requestInterstitialAd();
+		}
+	}else{
+		navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
+		IntervalVibrate = setInterval(function(){ 	
+			navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
+		},11000);	
+	}
+})
+
+
+$$(document).on('resume', function (e) {
+	if(!($(".onoffswitch-checkbox").is(':checked')=== true)){
+		navigator.vibrate([]);
+		clearInterval(IntervalVibrate);
+		navigator.vibrate([]);
 		
-		
-        navigator.app.backHistory()
-    }
+		if(Math.floor(Math.random() * 2) + 1 == 1 ){
+			window.admob.requestInterstitialAd();
+		}
+	}else{
+		navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
+		IntervalVibrate = setInterval(function(){ 	
+			navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
+		},11000);	
+	}
 })
 
 
