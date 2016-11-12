@@ -21,7 +21,7 @@ $$(document).on('deviceready', function() {
 	interstitialAdId:     "ca-app-pub-3715336230214756/6234963420",  // Optional 
 	tappxIdAndroid:       "/120940746/Pub-13206-Android-4560",        // Optional 
 	tappxShare:           0.2,
-	isTesting: true, // receiving test ads (do not test with real ads as your account will be banned)				// Optional
+	isTesting: false, // receiving test ads (do not test with real ads as your account will be banned)				// Optional
 	bannerAtTop: false, // set to true, to put banner at top
 	overlap: true, // set to true, to allow banner overlap webview
 	offsetStatusBar: false, // set to true to avoid ios7 status bar overlap
