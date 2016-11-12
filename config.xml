@@ -36,12 +36,7 @@
         <preference name="BackupWebStorage" value="none" />
     </platform>
 	
-	 
-	  <platform name="wp8">
 
-	  </platform>
-	  <platform name="windows">
-	   </platform>
     <preference name="DisallowOverscroll" value="true" />
 	<preference name="orientation" value="portrait" />
 	<preference name="fullscreen" value="true" />
