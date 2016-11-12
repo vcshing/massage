@@ -84,6 +84,55 @@
 			right: 0px; 
 		}
 		
+		
+		.onoffswitch2 {
+    position: relative; width: 300px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	margin: auto;
+		}
+		.onoffswitch-checkbox2 {
+			 display: none;
+		}
+		.onoffswitch-label2 {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 50px;
+		}
+		.onoffswitch-inner2 {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+		}
+		.onoffswitch-inner2:before, .onoffswitch-inner2:after {
+    display: block; float: left; width: 50%; height: 75px; padding: 0; line-height: 75px;
+    font-size: 25px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+		}
+		.onoffswitch-inner2:before {
+    content: "Background On";
+    padding-left: 35px;
+    background-color: #34A7C1; color: #FFFFFF;
+		}
+		.onoffswitch-inner2:after {
+    content: "Background Off";
+    padding-right: 35px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+		}
+		.onoffswitch-switch2 {
+    display: block; width: 40px; margin: 17.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 221px;
+    border: 2px solid #999999; border-radius: 50px;
+    transition: all 0.3s ease-in 0s; 
+		}
+		.onoffswitch-checkbox2:checked + .onoffswitch-label2 .onoffswitch-inner2 {
+			margin-left: 0;
+		}
+		.onoffswitch-checkbox2:checked + .onoffswitch-label2 .onoffswitch-switch2 {
+			right: 0px; 
+		}
+		
+		
 		.vibrateImg{
 			position: relative; width: 90%;
 			margin: auto;
@@ -143,6 +192,16 @@
 								<label class="onoffswitch-label" for="myonoffswitch">
 									<span class="onoffswitch-inner"></span>
 									<span class="onoffswitch-switch"></span>
+								</label>
+							</div>
+							<br/>
+
+							<div class="onoffswitch2">
+								
+								<input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox2" id="myonoffswitch2">
+								<label class="onoffswitch-label2" for="myonoffswitch2">
+									<span class="onoffswitch-inner2"></span>
+									<span class="onoffswitch-switch2"></span>
 								</label>
 							</div>
                             <!-- Link to another page -->

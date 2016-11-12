@@ -66,9 +66,13 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 
 
 $$(document).on('pause', function (e) {
-	navigator.vibrate([]);
-	clearInterval(IntervalVibrate);
-	navigator.vibrate([]);
+	if($(".onoffswitch-checkbox2").is(':checked')=== true){
+		
+	}else{
+		navigator.vibrate([]);
+		clearInterval(IntervalVibrate);
+		navigator.vibrate([]);
+	}
 })
 
 
