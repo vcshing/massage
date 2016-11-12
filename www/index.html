@@ -171,14 +171,15 @@
 	<script>
 
 	$(function(){
+		$(".onoffswitch-checkbox").trigger("click");	
 		$(".onoffswitch-label").bind("click",function(){
 			if($(".onoffswitch-checkbox").is(':checked')=== true){
 				navigator.vibrate([]);
 				clearInterval(IntervalVibrate);
 				navigator.vibrate([]);
 			}else{
-			
-				IntervalVibrate = setInterval(function(){ 
+				navigator.vibrate([1000, 1000, 3000, 1000, 5000, 1000, 5000]); 
+				IntervalVibrate = setInterval(function(){ 	
 					navigator.vibrate([1000, 1000, 3000, 1000, 5000, 1000, 5000]); 
 				},17000);
 				
