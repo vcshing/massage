@@ -29,9 +29,16 @@ $$(document).on('deviceready', function() {
 	autoShowInterstitial: true // auto show interstitials ad when loaded	// Optional 
   });
   
-  // Start showing banners (atomatic when autoShowBanner is set to true) 
-  admob.createBannerView();
+	// Start showing banners (atomatic when autoShowBanner is set to true) 
+	admob.createBannerView();
   
+	document.addEventListener("orientationchange", this.onOrientationChange, false);
+	document.addEventListener(admob.events.onAdLoaded, this.onAdLoaded, false);
+	document.addEventListener(admob.events.onAdFailedToLoad, this.onAdFailedToLoad, false);
+	document.addEventListener(admob.events.onAdOpened, function (e) { }, false);
+	document.addEventListener(admob.events.onAdClosed, function (e) { }, false);
+	document.addEventListener(admob.events.onAdLeftApplication, function (e) { }, false);
+	document.addEventListener(admob.events.onInAppPurchaseRequested, function (e) { }, false);
   // Request interstitial (will present automatically when autoShowInterstitial is set to true) 
   //admob.requestInterstitialAd();
     
@@ -65,8 +72,9 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 })
 
 
-$$(document).on('pause', function (e) {
+document.addEventListener("pause", onPause, false);
 
+function onPause() {
 	var r = confirm("Stop Vibration?");
 	if (r == true) {
 		navigator.vibrate([]);
@@ -75,6 +83,9 @@ $$(document).on('pause', function (e) {
 	} else {
 	
 	}
-})
+}
+
+
+
 
 
