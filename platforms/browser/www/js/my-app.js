@@ -32,7 +32,6 @@ $$(document).on('deviceready', function() {
 	// Start showing banners (atomatic when autoShowBanner is set to true) 
 	admob.createBannerView();
   
-	document.addEventListener("orientationchange", this.onOrientationChange, false);
 	document.addEventListener(admob.events.onAdLoaded, this.onAdLoaded, false);
 	document.addEventListener(admob.events.onAdFailedToLoad, this.onAdFailedToLoad, false);
 	document.addEventListener(admob.events.onAdOpened, function (e) { }, false);
