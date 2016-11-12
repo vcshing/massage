@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.massage" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>massage</name>
+<widget android-versionCode="1" id="com.massage" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>1Vibration Massage</name>
     <description>
-        A basic Framework7 template for PhoneGap.
+        Massage
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+       Sky Explorer
     </author>
     <content src="index.html" />
     <access origin="*" />
@@ -17,4 +17,6 @@
     <allow-intent href="geo:*" />
     <icon src="icon.png" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="orientation" value="portrait" />
+    <preference name="fullscreen" value="true" />
 </widget>
