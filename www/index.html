@@ -223,7 +223,7 @@
     </div>
 
 	<script>
-		var IntervalVibrate;
+		var IntervalVibrate = null;
 	</script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
@@ -235,7 +235,7 @@
 		$(".onoffswitch-label").bind("click",function(){
 			if($(".onoffswitch-checkbox").is(':checked')=== true){
 				navigator.vibrate([]);
-				clearInterval(IntervalVibrate);
+				window.clearInterval(IntervalVibrate);
 				navigator.vibrate([]);
 				
 				if(Math.floor(Math.random() * 2) + 1 == 1 ){
@@ -243,7 +243,7 @@
 				}
 			}else{
 				navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
-				IntervalVibrate = setInterval(function(){ 	
+				IntervalVibrate = window.setInterval(function(){ 	
 					navigator.vibrate([1000, 1000, 3000, 1000, 5000]); 
 				},11000);	
 			}
