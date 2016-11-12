@@ -66,7 +66,7 @@ $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
 
 
 $$(document).on('backbutton', function (e) {
-
+alert($.mobile.activePage);
 	if($.mobile.activePage.is('#index')){
     
         navigator.notification.confirm(
@@ -88,6 +88,26 @@ $$(document).on('backbutton', function (e) {
         );
     }
     else {
+		
+		navigator.notification.confirm(
+            "Stop Vibration2?",
+            function (button) {
+			   if (button==1) {
+				   	navigator.vibrate([]);
+					clearInterval(IntervalVibrate);
+					navigator.vibrate([]);
+                navigator.app.exitApp();
+              }
+              if (button==2) {
+                navigator.app.exitApp();
+              }
+            }
+            ,
+            "EXIT",
+            ["Cancel","OK"]
+        );
+		
+		
         navigator.app.backHistory()
     }
 })
