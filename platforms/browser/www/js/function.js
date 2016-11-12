@@ -10,13 +10,3 @@ Url = {
         return vars;
     }
 };
-
-$(".otherApp").bind("click",function(){
-	e.preventDefault();
-
-	var target = "_system";
-	var options = "location=yes";
-	var url = "https://play.google.com/store/apps/developer?id=Sky+Explorer";
-	window.open(url, target, options);
-	
-})

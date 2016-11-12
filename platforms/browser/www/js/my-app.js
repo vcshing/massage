@@ -35,7 +35,7 @@ $$(document).on('deviceready', function() {
   // Request interstitial (will present automatically when autoShowInterstitial is set to true) 
   //admob.requestInterstitialAd();
     
-	
+	navigator.vibrate([1000, 1000, 3000, 1000, 5000]);
 });
 
 

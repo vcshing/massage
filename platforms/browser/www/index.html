@@ -170,24 +170,35 @@
     <script type="text/javascript" src="js/my-app.js"></script>
 	<script>
 
-	
-	$(".onoffswitch-label").bind("click",function(){
-		if($(".onoffswitch-checkbox").is(':checked')=== true){
-			navigator.vibrate([]);
-			clearInterval(IntervalVibrate);
-			navigator.vibrate([]);
-		}else{
-		
-			IntervalVibrate = setInterval(function(){ 
-				navigator.vibrate([1000, 1000, 3000, 1000, 5000, 1000, 5000]); },
-			17000);
+	$(function(){
+		$(".onoffswitch-label").bind("click",function(){
+			if($(".onoffswitch-checkbox").is(':checked')=== true){
+				navigator.vibrate([]);
+				clearInterval(IntervalVibrate);
+				navigator.vibrate([]);
+			}else{
 			
-			if(Math.floor(Math.random() * 2) + 1 == 1 ){
-				window.admob.requestInterstitialAd();
+				IntervalVibrate = setInterval(function(){ 
+					navigator.vibrate([1000, 1000, 3000, 1000, 5000, 1000, 5000]); 
+				},17000);
+				
+				if(Math.floor(Math.random() * 2) + 1 == 1 ){
+					window.admob.requestInterstitialAd();
+				}
 			}
-		}
+		})
+		
+		
+		$(".otherApp").bind("click",function(e){
+			e.preventDefault();
+			//alert(1);
+			var target = "_system";
+			var options = "location=yes";
+			var url = "https://play.google.com/store/apps/developer?id=Sky+Explorer";
+			window.open(url, target, options);
+			
+		})
 	})
-	
 	
 	</script>
 </body>
